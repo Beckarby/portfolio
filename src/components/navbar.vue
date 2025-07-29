@@ -2,12 +2,13 @@
 import { useAuth } from '../composables/useAuth';
 import { useLayout } from '../composables/useLayout';
 import { logout } from '../auth';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { Moon, Sun } from 'lucide-vue-next'; 
 
 const { user } = useAuth();
 const { isDarkMode, toggleDarkMode } = useLayout();
 const router = useRouter();
+const route = useRoute();
 
 const handleLogout = async () => {
   try {
@@ -32,7 +33,14 @@ const handleLogout = async () => {
         <template v-if="user">
           <div class="user-menu">
             <span class="user-email">{{ user.email }}</span>
-            <router-link to="/dashboard" class="nav-link">Dashboard</router-link>
+
+            <template v-if="route.path === '/dashboard'">
+                <router-link to="/about" class="nav-link">About Me</router-link>    
+            </template>
+            <template v-else>
+                <router-link to="/dashboard" class="nav-link">Dashboard</router-link>
+            </template>
+
             <button @click="handleLogout" class="logout-btn">
               Logout
             </button>

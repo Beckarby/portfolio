@@ -2,6 +2,7 @@
 import { useAuth } from '../composables/useAuth';
 import { useRouter } from 'vue-router';
 import Card from '../components/card.vue';
+import SkillChart from '../components/SkillChart.vue';
 
 const { user } = useAuth();
 const router = useRouter();
@@ -49,6 +50,17 @@ const projects = [
   },
 ]
 
+const myDefinedSkills = [
+  { name: 'Vue.js', level: 5 },
+  { name: 'JavaScript', level: 4.5 },
+  { name: 'Git', level: 4 },
+  { name: 'Node.js', level: 4 },
+  { name: 'HTML/CSS', level: 4.5 },
+  { name: 'React', level: 3.5 },
+  { name: 'Angular', level: 4 },
+  { name: 'Python', level: 4 },
+]
+
 </script>
 
 <template>
@@ -66,6 +78,9 @@ const projects = [
         :link-text="project.linkText"
       />
     </div>
+  </div>
+  <div class="chart">
+    <SkillChart :skills="myDefinedSkills" :max-level="5" />
   </div>
 </template>
 
