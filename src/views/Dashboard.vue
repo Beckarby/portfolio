@@ -3,6 +3,7 @@ import { useAuth } from '../composables/useAuth';
 import { useRouter } from 'vue-router';
 import Card from '../components/card.vue';
 import SkillChart from '../components/SkillChart.vue';
+import CardCarousel from '../components/CardCarousel.vue';
 
 const { user } = useAuth();
 const router = useRouter();
@@ -57,7 +58,6 @@ const myDefinedSkills = [
   { name: 'Node.js', level: 4 },
   { name: 'HTML/CSS', level: 4.5 },
   { name: 'React', level: 3.5 },
-  { name: 'Angular', level: 4 },
   { name: 'Python', level: 4 },
 ]
 
@@ -66,18 +66,8 @@ const myDefinedSkills = [
 <template>
   <div class="projects-section">
     <h2 class="section-title">My Projects</h2>
-    <div class="card-grid">
-      <Card
-        v-for="project in projects"
-        :key="project.id"
-        :title="project.title"
-        :description="project.description"
-        :image-url="project.imageUrl"
-        :image-alt="project.imageAlt"
-        :link-url="project.linkUrl"
-        :link-text="project.linkText"
-      />
-    </div>
+    <!-- Replace the card-grid with the Carousel component -->
+    <CardCarousel :cards="projects" />
   </div>
   <div class="chart">
     <SkillChart :skills="myDefinedSkills" :max-level="5" />
