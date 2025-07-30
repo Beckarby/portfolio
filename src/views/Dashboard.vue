@@ -65,6 +65,22 @@ const myDefinedSkills = [
 
 <template>
   <div class="projects-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Hello, I'm<br>
+          <span class="hero-name">Rebecca Bracho</span>
+        </h1>
+        <p class="hero-subtitle">
+          Computer Engineering Student at Universidad Rafael Urdaneta<br>
+          Focused on Frontend Development and Learning Everyday.
+        </p>
+      </div>
+      <div class="hero-background">
+        <div class="code-overlay"></div>
+      </div>
+
+    </div>
     <h2 class="section-title">My Projects</h2>
     <!-- Replace the card-grid with the Carousel component -->
     <CardCarousel :cards="projects" />
@@ -75,6 +91,69 @@ const myDefinedSkills = [
 </template>
 
 <style scoped>
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.hero-name {
+  color: #ef4444;
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  color: #cbd5e1;
+  font-weight: 300;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('public/background.jpeg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+
+
+
 .projects-section {
   max-width: 1200px;
   margin: 2rem auto 4rem auto;
