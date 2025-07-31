@@ -194,9 +194,6 @@ const dataPolygonPoints = computed(() => {
   display: block; 
   width: 100%; 
   height: auto;
-  font-family:
-    Inter,
-    sans-serif;
   margin: 0 auto;
   overflow: visible; 
 }

@@ -3,11 +3,11 @@
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
 
-  --vt-c-black: #181818;
+  --vt-c-black: #000000;
   --vt-c-black-soft: #222222;
   --vt-c-black-mute: #282828;
 
-  --vt-c-indigo: #2c3e50;
+  --vt-c-indigo: #212c38;
 
   --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
   --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
@@ -65,8 +65,8 @@
   --text-color: var(--vt-c-text-dark-1);
   --text-color-secondary: var(--vt-c-text-dark-2);
 
-  --primary-color: #6366f1;
-  --primary-color-text: #4f46e5;
+  --primary-color: #d2d2d2;
+  --primary-color-text: #bdbbe1;
 
   --red-500: #ef4444;
   --red-600: #dc2626;
@@ -78,6 +78,21 @@
     color-scheme: dark;
     background-color: var(--color-background);
   }
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(../assets/Montserrat/Montserrat-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Lato;
+  src: url(../assets/Lato/Lato-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../assets/Poppins/Poppins-Regular.ttf) format('truetype');
 }
 
 *,
@@ -97,6 +112,9 @@ body {
     background-color 0.5s; 
   line-height: 1.6;
   font-family:
+  "Montserrat",
+  "Lato",
+  "Poppins",
     Inter,
     -apple-system,
     BlinkMacSystemFont,

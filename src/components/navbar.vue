@@ -68,14 +68,13 @@ const handleLogout = async () => {
 
 <style scoped>
 .navbar {
-  background: var(--surface-card);
+  background: transparent;
   border-bottom: 1px solid var(--surface-border);
   padding: 0;
   position: sticky;
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
-  border-radius: 12px;
 }
 
 .nav-container {
@@ -95,7 +94,7 @@ const handleLogout = async () => {
 }
 
 .brand-text {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-color-text));
+  background: var(--primary-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

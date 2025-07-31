@@ -11,26 +11,26 @@ const router = useRouter();
 const projects = [
   {
     id: 1,
-    title: 'Prueba 1',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    imageUrl: '/public/prueba-card.png',
-    linkUrl: 'https://github.com',
+    title: 'SoundPlayer',
+    description: 'modern, minimalistic music player application built with Vue.js and PrimeVue. manage playlists, your audio files, and enjoy seamless playback - all locally within your browser.',
+    imageUrl: '/public/SoundPlayer.png',
+    linkUrl: 'https://sound-player-tau.vercel.app',
     linkText: 'View Project',
   },
   {
     id: 2,
-    title: 'Prueba 2',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    imageUrl: '/public/prueba2.jpeg',
-    linkUrl: 'https://github.com',
+    title: 'Notepad',
+    description: 'Basic notepad in React, manage your notes with ease. Create, edit, and delete notes.',
+    imageUrl: '/public/notepad.png',
+    linkUrl: 'https://notepad-three-theta.vercel.app',
     linkText: 'View Project',
   },
   {
     id: 3,
-    title: 'Prueba 3',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    imageUrl: '/public/prueba3.jpeg',
-    linkUrl: 'https://github.com',
+    title: 'Money Base',
+    description: 'Basic personal finance management application built with Vanilla JavaScript. Track your expenses, income, and savings all of this locally within your browser.',
+    imageUrl: '/public/money-base.png',
+    linkUrl: 'https://money-base.vercel.app',
     linkText: 'View Project',
   },
   {
@@ -64,7 +64,8 @@ const myDefinedSkills = [
 </script>
 
 <template>
-  <div class="projects-section">
+  <div class="hero-section">
+    <div class="hero-background"></div>
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title">
@@ -76,15 +77,14 @@ const myDefinedSkills = [
           Focused on Frontend Development and Learning Everyday.
         </p>
       </div>
-      <div class="hero-background">
-        <div class="code-overlay"></div>
-      </div>
-
     </div>
+  </div>
+
+  <div class="projects-section">
     <h2 class="section-title">My Projects</h2>
-    <!-- Replace the card-grid with the Carousel component -->
     <CardCarousel :cards="projects" />
   </div>
+
   <div class="chart">
     <SkillChart :skills="myDefinedSkills" :max-level="5" />
   </div>
@@ -92,25 +92,35 @@ const myDefinedSkills = [
 
 <style scoped>
 .hero-section {
-  position: relative;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  position: relative; 
+  padding: 3.5rem 2rem;
+  background-color: #000000; 
   color: white;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/public/background.jpeg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px); 
+  z-index: 1; 
 }
 
 .hero-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  position: relative;
+  position: relative; 
   z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .hero-text {
@@ -138,25 +148,9 @@ const myDefinedSkills = [
   font-weight: 300;
 }
 
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('public/background.jpeg');
-  background-size: cover;
-  background-position: center;
-  filter: blur(10px);
-  z-index: -1;
-}
-
-
-
-
 .projects-section {
   max-width: 1200px;
-  margin: 2rem auto 4rem auto;
+  margin: 4rem auto;
   padding: 0 2rem;
 }
 
@@ -167,27 +161,17 @@ const myDefinedSkills = [
   margin-bottom: 3rem;
 }
 
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-  gap: 2rem;
-  justify-content: center; 
-  align-items: stretch; 
-}
-
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 6rem 1rem;
+  }
   .projects-section {
     padding: 0 1rem;
-    margin-bottom: 3rem;
+    margin: 3rem auto;
   }
-
   .section-title {
     font-size: 2rem;
     margin-bottom: 2rem;
-  }
-
-  .card-grid {
-    grid-template-columns: 1fr; 
   }
 }
 </style>

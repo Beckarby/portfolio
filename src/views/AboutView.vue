@@ -68,11 +68,6 @@ const education = [
             <p>{{ edu.notes }}</p>
           </div>
         </AccordionItem>
-
-        <!-- You could add more items like: -->
-        <!-- <AccordionItem id="interests" title="Interests">
-          <p>Beyond coding, I love exploring new technologies, contributing to open-source projects, and reading about cutting-edge AI developments.</p>
-        </AccordionItem> -->
       </Accordion>
     </section>
   </div>
@@ -80,7 +75,7 @@ const education = [
 
 <style scoped>
 .about-me-page {
-  max-width: 900px; /* Adjust max-width for the page content */
+  max-width: 900px; 
   margin: 2rem auto 4rem auto;
   padding: 0 2rem;
 }
