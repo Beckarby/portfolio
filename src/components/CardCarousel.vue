@@ -60,26 +60,31 @@ const transitionEndHandler = () => {
   isAnimating.value = false;
 
   const numActualCards = totalCards.value;
-  const offset = numClones.value; 
+  const offset = numClones.value;
+  const track = document.querySelector('.carousel-track');
+
+  if (!track) return; 
 
   if (currentSlideGlobalIndex.value >= numActualCards + offset) {
-    currentSlideGlobalIndex.value = offset; 
-    const track = document.querySelector('.carousel-track');
-    if (track) track.style.transition = 'none';
+    track.style.transition = 'none';
+    currentSlideGlobalIndex.value = offset;
+
     requestAnimationFrame(() => {
-      if (track) track.style.transition = 'transform 0.5s ease-in-out';
+      requestAnimationFrame(() => {
+        track.style.transition = 'transform 0.5s ease-in-out'; 
+      });
     });
-  }
-  else if (currentSlideGlobalIndex.value < offset) {
+  } else if (currentSlideGlobalIndex.value < offset) {
+    track.style.transition = 'none';
     currentSlideGlobalIndex.value = numActualCards + offset - 1;
-    const track = document.querySelector('.carousel-track');
-    if (track) track.style.transition = 'none';
+
     requestAnimationFrame(() => {
-      if (track) track.style.transition = 'transform 0.5s ease-in-out';
+      requestAnimationFrame(() => {
+        track.style.transition = 'transform 0.5s ease-in-out';
+      });
     });
   }
 };
-
 
 const navigate = (direction) => {
   if (isAnimating.value) return; 
