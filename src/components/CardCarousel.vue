@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
 import Card from './card.vue';
+import { ArrowLeft, ArrowRight } from 'lucide-vue-next';
 
 const props = defineProps({
   cards: {
@@ -136,7 +137,7 @@ onUnmounted(() => {
         @click="navigate('prev')"
         aria-label="Previous slide"
       >
-        &#10094;
+        <ArrowLeft />
       </button>
       <div class="carousel-track" :style="{ transform: transformStyle }">
         <div
@@ -161,7 +162,7 @@ onUnmounted(() => {
         @click="navigate('next')"
         aria-label="Next slide"
       >
-        &#10095;
+        <ArrowRight />
       </button>
     </div>
 

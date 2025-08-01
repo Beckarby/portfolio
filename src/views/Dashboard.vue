@@ -229,7 +229,7 @@ const education = [
   justify-content: center;
   gap: 1rem;
   max-width: 1400px;
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 
 .charts > :first-child {
