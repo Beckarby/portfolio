@@ -4,6 +4,9 @@ import { useRouter } from 'vue-router';
 import Card from '../components/card.vue';
 import SkillChart from '../components/SkillChart.vue';
 import CardCarousel from '../components/CardCarousel.vue';
+import barChart from '../components/barChart.vue';
+import BarChart from '../components/barChart.vue';
+import { ref } from 'vue';
 
 const { user } = useAuth();
 const router = useRouter();
@@ -35,18 +38,18 @@ const projects = [
   },
   {
     id: 4,
-    title: 'Prueba 4',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    imageUrl: '/public/prueba4.jpeg',
-    linkUrl: 'https://github.com',
+    title: 'aCHADemia',
+    description: 'Desktop application designed for performing academic management. Built with C# and WPF, it leverages the Model-View-ViewModel (MVVM) architectural pattern for a clean, maintainable, and testable codebase.',
+    imageUrl: '/public/aCHADemia.png',
+    linkUrl: 'https://github.com/Kaucrow/aCHADemia',
     linkText: 'View Project',
   },
   {
     id: 5,
-    title: 'Prueba 5',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    imageUrl: '/public/prueba5.jpeg',
-    linkUrl: 'https://github.com',
+    title: 'SMTP Frontend',
+    description: 'A simple frontend for the SMTP server, built with Vue.js and Tailwind CSS. It allows users to send emails using the SMTP protocol.',
+    imageUrl: '/public/SMTP.png',
+    linkUrl: 'https://github.com/Beckarby/SMTP-Frontend',
     linkText: 'View Project',
   },
 ]
@@ -60,6 +63,15 @@ const myDefinedSkills = [
   { name: 'React', level: 3.5 },
   { name: 'Python', level: 4 },
 ]
+
+const skillData = ref([
+  { label: 'API Design', value: 82 },
+  { label: 'Databases', value: 79 },
+  { label: 'Problem Solving', value: 95 },
+  { label: 'Testing', value: 60 },
+  { label: 'Communication', value: 85 },
+  { label: 'Deployment', value: 65 },
+]);
 
 </script>
 
@@ -85,8 +97,9 @@ const myDefinedSkills = [
     <CardCarousel :cards="projects" />
   </div>
 
-  <div class="chart">
+  <div class="charts">
     <SkillChart :skills="myDefinedSkills" :max-level="5" />
+    <BarChart :data="skillData" :max-value="100" />
   </div>
 </template>
 
@@ -161,6 +174,26 @@ const myDefinedSkills = [
   margin-bottom: 3rem;
 }
 
+.charts {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.charts > :first-child {
+  flex: 0 0 450px; 
+  max-width: 370px;
+}
+
+.charts > :last-child {
+  flex: 1 1 500px;
+  max-width: 620px;
+}
 @media (max-width: 768px) {
   .hero-section {
     padding: 6rem 1rem;
