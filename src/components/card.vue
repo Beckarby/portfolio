@@ -34,7 +34,7 @@ const props = defineProps({
 
 const formattedLinkUrl = computed(() => {
   if (props.linkUrl && !props.linkUrl.startsWith('http://') && !props.linkUrl.startsWith('https://')) {
-    return `https://${props.linkUrl}`; // Default to https if missing protocol
+    return `https://${props.linkUrl}`; 
   }
   return props.linkUrl;
 });

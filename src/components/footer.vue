@@ -12,12 +12,14 @@
 
 <style scoped>
 .app-footer {
-  background-color: var(--surface-card); 
-  color: var(--text-color-secondary);
+  background-color: transparent; 
+  color: var(--text-color);
   border-radius: 8px;
   text-align: center;
-  padding: 1.5rem 1rem; 
+  padding: 1.5rem; 
   border-top: 1px solid var(--surface-border); 
+  backdrop-filter: blur(10px);
+
 }
 
 .footer-content {

@@ -5,16 +5,6 @@ const props = defineProps({
   skills: {
     type: Array,
     required: true,
-    // default: () => [
-    //   { name: 'Vue.js', level: 5 },
-    //   { name: 'CSS', level: 4 },
-    //   { name: 'JavaScript', level: 5 },
-    //   { name: 'Node.js', level: 3 },
-    //   { name: 'Databases', level: 4 },
-    //   { name: 'API Design', level: 4 },
-    //   { name: 'Problem Solving', level: 5 },
-    //   { name: 'Communication', level: 4 },
-    // ],
   },
   maxLevel: {
     type: Number,
@@ -22,30 +12,26 @@ const props = defineProps({
   },
 });
 
-const size = 300; // SVG viewBox size (width and height)
-const center = size / 2; // Center point of the SVG
-const radius = center * 0.8; // Radius for the outermost circle/polygon
+const size = 300; 
+const center = size / 2;
+const radius = center * 0.8;
 
-// Number of skills determines the number of axes/sides of the polygon
 const numSkills = computed(() => props.skills.length);
-const angleSlice = computed(() => (Math.PI * 2) / numSkills.value); // Angle between each axis
+const angleSlice = computed(() => (Math.PI * 2) / numSkills.value); 
 
-// function to calculate point coordinates for a given angle and distance from center 
 const getCoordinates = (angle, distance) => {
   const x = center + distance * Math.cos(angle);
   const y = center + distance * Math.sin(angle);
   return `${x},${y}`;
 };
 
-// --- Grid Lines ---
 const gridLevels = computed(() => {
   const levels = [];
-  // For 5 levels: 1 (inner) to 5 (outer)
   for (let i = 1; i <= props.maxLevel; i++) {
     const levelRadius = (radius / props.maxLevel) * i;
     const points = [];
     for (let j = 0; j < numSkills.value; j++) {
-      const angle = angleSlice.value * j - Math.PI / 2; // We subtract PI/2 to start from top
+      const angle = angleSlice.value * j - Math.PI / 2; 
       points.push(getCoordinates(angle, levelRadius));
     }
     levels.push(points.join(' '));
@@ -53,7 +39,6 @@ const gridLevels = computed(() => {
   return levels;
 });
 
-// Axis Lines 
 const axisLines = computed(() => {
   const lines = [];
   for (let i = 0; i < numSkills.value; i++) {
@@ -63,17 +48,15 @@ const axisLines = computed(() => {
   return lines;
 });
 
-// Skill Labels
 const skillLabels = computed(() => {
   return props.skills.map((skill, i) => {
     const angle = angleSlice.value * i - Math.PI / 2;
-    // Slightly extend the label position beyond the max radius
-    const labelRadius = radius + 25;
+    const labelRadius = radius + 15;
     const x = center + labelRadius * Math.cos(angle);
     const y = center + labelRadius * Math.sin(angle);
 
     let textAnchor = 'middle';
-    if (Math.abs(angle) < Math.PI / 6 || Math.abs(angle - Math.PI * 2) < Math.PI / 6) {
+    if (Math.abs(angle) < Math.PI / 5 || Math.abs(angle - Math.PI * 2) < Math.PI / 5) {
       textAnchor = 'middle'; 
     } else if (angle > Math.PI / 2 && angle < (Math.PI * 3) / 2) {
       textAnchor = 'end'; 
@@ -81,11 +64,12 @@ const skillLabels = computed(() => {
       textAnchor = 'start';
     }
 
-    // Small vertical adjustment for readability
     let dy = 0;
-    // if (Math.abs(angle + Math.PI / 2) < 0.1) dy = -5; // Top
-    // if (Math.abs(angle - Math.PI / 2) < 0.1) dy = 15; // Bottom
-
+    if (angle < -Math.PI / 2 || angle > Math.PI / 2) {
+      dy = '0.20em'; 
+    } else {
+      dy = '0.25em'; 
+    }
     return {
       x,
       y,
@@ -96,7 +80,6 @@ const skillLabels = computed(() => {
   });
 });
 
-// --- Data Polygon (The filled skill shape) ---
 const dataPolygonPoints = computed(() => {
   return props.skills
     .map((skill, i) => {
@@ -112,7 +95,6 @@ const dataPolygonPoints = computed(() => {
   <div class="radar-chart-container">
     <h2 class="chart-title">My Skills</h2>
     <svg :viewBox="`0 0 ${size} ${size}`" class="radar-chart-svg">
-      <!-- Grid Lines -->
       <g class="grid-lines">
         <polygon
           v-for="(points, index) in gridLevels"
@@ -123,7 +105,6 @@ const dataPolygonPoints = computed(() => {
         />
       </g>
 
-      <!-- Axis Lines -->
       <g class="axis-lines">
         <line
           v-for="(point, index) in axisLines"
@@ -136,7 +117,6 @@ const dataPolygonPoints = computed(() => {
         />
       </g>
 
-      <!-- Skill Labels -->
       <g class="skill-labels">
         <text
           v-for="(label, index) in skillLabels"
@@ -151,11 +131,9 @@ const dataPolygonPoints = computed(() => {
         </text>
       </g>
 
-      <!-- Data Polygon -->
       <g class="data-polygon-group">
         <polygon :points="dataPolygonPoints" class="data-polygon-fill" />
         <polyline :points="dataPolygonPoints" class="data-polygon-stroke" />
-        <!-- Skill Level Points -->
         <circle
           v-for="(skill, index) in skills"
           :key="`point-${index}`"
@@ -205,20 +183,17 @@ const dataPolygonPoints = computed(() => {
   stroke-width: 1px;
 }
 
-/* Axis Lines */
 .axis-line {
   stroke: var(--surface-border);
   stroke-width: 1px;
 }
 
-/* Skill Labels */
 .skill-label {
   fill: var(--text-color); 
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
 }
 
-/* Data Polygon */
 .data-polygon-fill {
   fill: var(--primary-color);
   opacity: 0.4; 

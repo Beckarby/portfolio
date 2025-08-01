@@ -175,7 +175,7 @@ const yAxisTicks = computed(() => {
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  max-width: 800px; /* Adjust max-width as needed */
+  max-width: 800px; 
   margin: 2rem auto;
   text-align: center;
 }

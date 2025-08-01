@@ -32,7 +32,7 @@ const handleLogout = async () => {
       <div class="nav-links">
         <template v-if="user">
           <div class="user-menu">
-            <span class="user-email">Hello, {{ user.email }}!</span>
+            <span class="user-email">Hello, {{ user.email.split('@')[0] }}!</span>
 
             <button @click="handleLogout" class="logout-btn">
               Logout
@@ -46,14 +46,14 @@ const handleLogout = async () => {
           </div>
         </template>
 
-        <button @click="toggleDarkMode" class="theme-toggle" :class="{ 'dark': isDarkMode }">
+        <!-- <button @click="toggleDarkMode" class="theme-toggle" :class="{ 'dark': isDarkMode }">
           <span v-if="isDarkMode">
             <Moon />
           </span>
           <span v-else>
             <Sun />
           </span>
-        </button>
+        </button> -->
       </div>
     </div>
   </nav>
@@ -87,7 +87,7 @@ const handleLogout = async () => {
 }
 
 .brand-text {
-  background: var(--primary-color);
+  background: var(--text-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
