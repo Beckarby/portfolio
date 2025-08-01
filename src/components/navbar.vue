@@ -32,14 +32,7 @@ const handleLogout = async () => {
       <div class="nav-links">
         <template v-if="user">
           <div class="user-menu">
-            <span class="user-email">{{ user.email }}</span>
-
-            <template v-if="route.path === '/dashboard'">
-                <router-link to="/about" class="nav-link">About Me</router-link>    
-            </template>
-            <template v-else>
-                <router-link to="/dashboard" class="nav-link">Dashboard</router-link>
-            </template>
+            <span class="user-email">Hello, {{ user.email }}!</span>
 
             <button @click="handleLogout" class="logout-btn">
               Logout
@@ -113,10 +106,9 @@ const handleLogout = async () => {
 }
 
 .user-email {
-  color: var(--text-color-secondary);
+  color: var(--text-color);
   font-size: 0.9rem;
   padding: 0.5rem 1rem;
-  background: var(--surface-ground);
   border-radius: 20px;
 }
 

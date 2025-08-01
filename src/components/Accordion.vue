@@ -17,18 +17,16 @@ const activeItemId = ref(props.initialOpenId);
 
 const toggleItem = (id) => {
   if (activeItemId.value === id) {
-    activeItemId.value = null; // Close if already open
+    activeItemId.value = null; 
   } else {
     if (props.singleOpen) {
-      activeItemId.value = id; // Open new item (and close previous if singleOpen)
+      activeItemId.value = id; 
     } else {
       activeItemId.value = id;
     }
   }
 };
 
-// Provide the activeItemId (as a ref) and the toggleItem function to child components
-// This will allow AccordionItem to react to changes in activeItemId
 provide('activeItemId', activeItemId);
 provide('toggleItem', toggleItem);
 </script>

@@ -6,6 +6,8 @@ import SkillChart from '../components/SkillChart.vue';
 import CardCarousel from '../components/CardCarousel.vue';
 import barChart from '../components/barChart.vue';
 import BarChart from '../components/barChart.vue';
+import Accordion from '../components/Accordion.vue';
+import AccordionItem from '../components/AccordionItem.vue';
 import { ref } from 'vue';
 
 const { user } = useAuth();
@@ -73,6 +75,28 @@ const skillData = ref([
   { label: 'Deployment', value: 65 },
 ]);
 
+const softSkills = [
+  'Problem-Solving',
+  'Assertive Communication',
+  'Teamwork',
+  'Adaptability',
+  'Critical Thinking',
+];
+
+const languages = [
+  'English (Fluent)',
+  'Spanish (Native)',
+];
+
+const education = [
+  {
+    institution: 'Universidad Rafael Urdaneta',
+    degree: 'B.Sc. in Computer Engineering',
+    years: '2022 - 2026',
+    notes: 'Focused on Full Stack Development, Project Management, and Software Engineering.',
+  },
+];
+
 </script>
 
 <template>
@@ -96,10 +120,34 @@ const skillData = ref([
     <h2 class="section-title">My Projects</h2>
     <CardCarousel :cards="projects" />
   </div>
-
+  <h2 class="section-title">My Skills</h2>
   <div class="charts">
     <SkillChart :skills="myDefinedSkills" :max-level="5" />
     <BarChart :data="skillData" :max-value="100" />
+  </div>
+  <div class="accordion-section">
+    <h2 class="section-title">About Me</h2>
+     <Accordion>
+        <AccordionItem id="soft-skills" title="Soft Skills">
+          <ul>
+            <li v-for="skill in softSkills" :key="skill">{{ skill }}</li>
+          </ul>
+        </AccordionItem>
+
+        <AccordionItem id="languages" title="Languages">
+          <ul>
+            <li v-for="lang in languages" :key="lang">{{ lang }}</li>
+          </ul>
+        </AccordionItem>
+
+        <AccordionItem id="education" title="Education">
+          <div v-for="edu in education" :key="edu.institution" class="education-entry">
+            <h3>{{ edu.institution }}</h3>
+            <p><strong>{{ edu.degree }}</strong> ({{ edu.years }})</p>
+            <p>{{ edu.notes }}</p>
+          </div>
+        </AccordionItem>
+      </Accordion>
   </div>
 </template>
 
@@ -171,7 +219,7 @@ const skillData = ref([
   font-size: 2.5rem;
   color: var(--color-heading);
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .charts {
@@ -181,7 +229,6 @@ const skillData = ref([
   justify-content: center;
   gap: 1rem;
   max-width: 1400px;
-  margin: 4rem auto;
   padding: 0 2rem;
 }
 
@@ -194,6 +241,12 @@ const skillData = ref([
   flex: 1 1 500px;
   max-width: 620px;
 }
+
+.accordion-section {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+} 
 @media (max-width: 768px) {
   .hero-section {
     padding: 6rem 1rem;

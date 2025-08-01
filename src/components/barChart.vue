@@ -216,7 +216,7 @@ const yAxisTicks = computed(() => {
   transition: all 0.5s ease-out; 
 }
 
-html.p-dark .axis-line,
+html.p-dark .axis-line, 
 html.p-dark .tick-line {
   stroke: var(--vt-c-divider-dark-2);
 }
