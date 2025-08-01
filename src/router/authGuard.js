@@ -19,7 +19,6 @@ export const initAuthGuard = (router) => {
     else if (to.matched.some(record => record.meta.requiresGuest) && user) {
       next('/dashboard')
     } 
-    // Otherwise proceed
     else {
       next()
     }
