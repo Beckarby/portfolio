@@ -297,7 +297,7 @@ const handleSignUp = async () => {
 }
 
 .auth-link {
-  color: var(--vt-c-indigo);
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;

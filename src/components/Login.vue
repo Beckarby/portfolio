@@ -170,7 +170,7 @@ const handleLogin = async () => {
 }
 
 .auth-button {
-  background: var(--vt-c-indigo);
+  background: var(--);
   color: white;
   border: none;
   padding: 0.875rem 1rem;
@@ -244,7 +244,7 @@ const handleLogin = async () => {
 }
 
 .auth-link {
-  color: var(--vt-c-indigo);
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
@@ -252,7 +252,7 @@ const handleLogin = async () => {
 
 .auth-link:hover {
   text-decoration: underline;
-  color: #34495e;
+  color:  #34495e;
 }
 
 @media (max-width: 480px) {
