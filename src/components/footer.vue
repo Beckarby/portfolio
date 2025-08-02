@@ -5,12 +5,12 @@ import { Linkedin, Github, Mail, Phone, MapPin, ExternalLink } from 'lucide-vue-
 const socialLinks = [
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/yourprofile',
+    url: 'https://www.linkedin.com/in/rebecca-bracho-b06920259/',
     icon: Linkedin
   },
   {
     name: 'GitHub', 
-    url: 'https://github.com/yourusername',
+    url: 'https://github.com/Beckarby',
     icon: Github
   }
 ];
