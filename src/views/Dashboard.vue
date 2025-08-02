@@ -217,6 +217,7 @@ const education = [
 
 .section-title {
   font-size: 2.5rem;
+  font-weight: 600;
   color: var(--color-heading);
   text-align: center;
   margin-bottom: 1rem;

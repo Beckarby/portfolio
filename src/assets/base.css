@@ -41,6 +41,9 @@
   --primary-color: #007bff;
   --primary-color-text: #0056b3;
 
+  --secondary-color: #6c757d;
+  --secondary-color-text: #5a6268;
+
   --red-500: #ef4444;
   --red-600: #dc2626;
 
@@ -67,6 +70,9 @@
 
   --primary-color: #cd3f3f;
   --primary-color-text: #bdbbe1;
+
+  --secondary-color: #7c380d;
+  --secondary-color-text: #8c8c8c;
 
   --red-500: #ef4444;
   --red-600: #dc2626;
