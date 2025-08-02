@@ -1,5 +1,5 @@
 <script setup>
-import { inject, computed } from 'vue';
+import { inject, computed, nextTick, ref, watch } from 'vue';
 
 const props = defineProps({
   id: {
@@ -18,6 +18,26 @@ const toggleItem = inject('toggleItem');
 const isOpen = computed(() => {
   return activeItemId.value === props.id;
 });
+
+const contentWrapperRef = ref(null);
+const contentHeight = ref('0px');
+
+watch(isOpen, async (newValue) => {
+  if (!contentWrapperRef.value) return;
+  
+  if (newValue) {
+    const scrollHeight = contentWrapperRef.value.scrollHeight;
+    contentWrapperRef.value.style.maxHeight = `${scrollHeight}px`;
+  } else {
+    const scrollHeight = contentWrapperRef.value.scrollHeight;
+    contentWrapperRef.value.style.maxHeight = `${scrollHeight}px`;
+    
+    contentWrapperRef.value.offsetHeight;
+    
+    await nextTick();
+    contentWrapperRef.value.style.maxHeight = '0px';
+  }
+}, { flush: 'post' });
 </script>
 
 <template>
@@ -48,7 +68,8 @@ const isOpen = computed(() => {
     <div
       :id="`accordion-content-${id}`"
       class="accordion-content-wrapper"
-      :style="{ maxHeight: isOpen ? '500px' : '0' }"
+      ref="contentWrapperRef"
+      :style="{ maxHeight: contentHeight }"
     >
       <div class="accordion-content">
         <slot></slot>
@@ -122,8 +143,9 @@ const isOpen = computed(() => {
 .accordion-content-wrapper {
   max-height: 0; 
   overflow: hidden;
-  transition: max-height 0.3s ease-out; 
+  transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1); 
 }
+
 
 .accordion-content {
   padding: 1rem 1.5rem 1.5rem 1.5rem;
