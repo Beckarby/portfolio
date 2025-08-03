@@ -12,7 +12,7 @@ const socialLinks = [
     name: 'GitHub', 
     url: 'https://github.com/Beckarby',
     icon: Github
-  }
+  },
 ];
 </script>
 

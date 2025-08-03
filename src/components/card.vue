@@ -99,7 +99,7 @@ const formattedLinkUrl = computed(() => {
 }
 
 .card-content {
-  padding: 1.5rem;
+  padding: 1.3rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -129,7 +129,7 @@ const formattedLinkUrl = computed(() => {
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  transition: color 0.3s ease;
+  transition: color 0.7s ease;
 }
 
 .card-link:hover {
