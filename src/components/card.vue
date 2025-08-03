@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue';
+import { ExternalLink } from 'lucide-vue-next';
 
 const props = defineProps({
   title: {
@@ -53,9 +54,10 @@ const formattedLinkUrl = computed(() => {
         target="_blank"
         rel="noopener noreferrer"
         class="card-link"
+        ExternalLink
       >
         {{ linkText }}
-        <span class="icon-external-link" aria-hidden="true">↗</span>
+        <ExternalLink class="icon-external-link" aria-hidden="true"  />
       </a>
     </div>
   </div>
@@ -83,7 +85,7 @@ const formattedLinkUrl = computed(() => {
 
 .card-image-container {
   width: 100%;
-  height: 200px;
+  height: 150px;
   overflow: hidden;
   position: relative;
   background-color: var(--surface-ground); 
@@ -136,6 +138,9 @@ const formattedLinkUrl = computed(() => {
 
 .icon-external-link {
   margin-left: 0.5rem;
+  margin-bottom: 0.2rem;
+  width: 0.9em;
+  height: 0.9em;
   font-size: 0.9em;
   vertical-align: middle;
 }

@@ -4,7 +4,6 @@ import { useRouter } from 'vue-router';
 import Card from '../components/card.vue';
 import SkillChart from '../components/SkillChart.vue';
 import CardCarousel from '../components/CardCarousel.vue';
-import barChart from '../components/barChart.vue';
 import BarChart from '../components/barChart.vue';
 import Accordion from '../components/Accordion.vue';
 import AccordionItem from '../components/AccordionItem.vue';
@@ -17,7 +16,7 @@ const projects = [
   {
     id: 1,
     title: 'SoundPlayer',
-    description: 'modern, minimalistic music player application built with Vue.js and PrimeVue. manage playlists, your audio files, and enjoy seamless playback - all locally within your browser.',
+    description: 'A modern, minimalistic music player application built with Vue.js and PrimeVue. Manage playlists, your audio files, and enjoy seamless playback - all locally within your browser.',
     imageUrl: 'SoundPlayer.png',
     linkUrl: 'https://sound-player-tau.vercel.app',
     linkText: 'View Project',
@@ -49,7 +48,7 @@ const projects = [
   {
     id: 5,
     title: 'SMTP Frontend',
-    description: 'A simple frontend for the SMTP server, built with Vue.js and Tailwind CSS. It allows users to send emails using the SMTP protocol.',
+    description: 'A simple frontend for a SMTP server, built with Vue.js, shadcn and Tailwind CSS. It allows users to send emails using the SMTP protocol.',
     imageUrl: 'SMTP.png',
     linkUrl: 'https://github.com/Beckarby/SMTP-Frontend',
     linkText: 'View Project',
@@ -57,22 +56,22 @@ const projects = [
 ]
 
 const myDefinedSkills = [
-  { name: 'Vue.js', level: 5 },
-  { name: 'JavaScript', level: 4.5 },
-  { name: 'Git', level: 4 },
-  { name: 'Node.js', level: 4 },
-  { name: 'HTML/CSS', level: 4.5 },
-  { name: 'React', level: 3.5 },
-  { name: 'Python', level: 4 },
+  { name: 'Vue.js', level: 4.6 },
+  { name: 'JavaScript', level: 5 },
+  { name: 'Git', level: 4.5 },
+  { name: 'SQL', level: 4 },
+  { name: 'HTML/CSS', level: 5 },
+  { name: 'React', level: 3.7 },
+  { name: 'Python', level: 4.5 },
 ]
 
 const skillData = ref([
-  { label: 'API Design', value: 82 },
   { label: 'Databases', value: 79 },
-  { label: 'Problem Solving', value: 95 },
-  { label: 'Testing', value: 60 },
-  { label: 'Communication', value: 85 },
-  { label: 'Deployment', value: 65 },
+  { label: 'Problem Solving', value: 90 },
+  { label: 'Testing', value: 75 },
+  { label: 'Deployment', value: 70 },
+  { label: 'Version Control', value: 95 },
+  { label: 'Communication', value: 80 },
 ]);
 
 const softSkills = [
