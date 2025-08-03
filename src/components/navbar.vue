@@ -125,11 +125,12 @@ const handleLogout = async () => {
   border-radius: 6px;
   transition: all 0.3s ease;
   font-weight: 500;
+  background-color: var(--secondary-color-text);
 }
 
 .nav-link:hover {
   background: var(--surface-hover);
-  color: var(--primary-color);
+  transform: translateY(-1px);
 }
 
 .signup-link {
@@ -138,18 +139,18 @@ const handleLogout = async () => {
 }
 
 .signup-link:hover {
-  background: var(--primary-color-text);
+  background: var(--surface-hover);
   transform: translateY(-1px);
 }
 
 .logout-btn {
-  background: var(--red-500);
+  background: var(--primary-color);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
